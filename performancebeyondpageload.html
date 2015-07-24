@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>jQuery Conf 2015- 24th July</title>
+	<meta name="author" content="@chetan_raj" />
+	<meta name="description" content="" />
+	<meta name="keywords"  content="" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<section class="container">		
+		<h3 class="text-primary">Session - Performance beyond Page Load</h3>
+		<h3 class="text-primary">Speaker - <a href="http://perfaudit.com/">Apoorv Saxena</a></h3>
+		<hr>
+		<p class="lead">WebPageTest - Test a website's performance - <a href="http://www.webpagetest.org/">http://www.webpagetest.org/</a></p>
+		
+		<p class="lead">Single Page App to load seasmlessly on desktop and mobile</p>
+		<ul>
+			<li>Concatenation</li>
+			<li>Minification</li>
+			<li>Load the HTML first</li>
+			<li>Load the JS async</li>
+		</ul>
+		
+		<p class="lead">
+			Hash tag for Perf
+			<a href="https://twitter.com/hashtag/webperf?src=hash">#webperf</a>
+			<a href="https://twitter.com/hashtag/browserperf?src=hash">#browserperf</a>
+		</p>
+	
+		<p class="lead">Smooth Interaction</p>
+		<ul>
+			<li>Device refres 60 times a seconds</li>
+			<li>1s/60 frames = 16.66ms/frames</li>
+			<li>When fail to meet frame budget of 10 ms, the website will be janky</li>
+			<li>Pixel Pipeline - JS > Style > Layout > paint > Composite in 10ms</li>
+		</ul>
+		<p class="lead">Tools at hand</p>
+		<ul>
+			<li>FPS meter in Chrome Devtools - Frame per Secong Meter</li>
+			<li>Profiling with Timeline in Composite</li>
+			<li>Show paint rectangles</li>
+		</ul>
+		
+		
+		<p class="lead">Processing that consumes mpre than 16ms</p>
+		<ul>
+			<li>Garbage Collection Event</li>
+			<li>JS triggered operation</li>
+		</ul>
+		
+		<p class="lead">Smooth Interactions</p>
+		<ul>
+			<li>No parallel animations</li>
+			<li>Avois Sync operations</li>
+		</ul>
+		
+		<p class="lead">Best Practices</p>
+		<ul>
+			<li>Avoid Memory Leaks</li>
+			<li>Delete Views when deleting Model, if using Frameworks</li>
+			<li>Reducing DOM Calls - Avoid Read and Write operations, Reference to variables</li>
+		</ul>
+		
+		<p class="lead">Forced Synchronous Layout</p>
+		<p class="lead">After DOM write, browser reads again</p>
+		<p class="lead">FastDOM - Eliminated layout thrashing by batching the DOM</p>
+		<p class="lead">Show potential scroll bottlenecks Chrome Devtool</p>
+		<p class="lead">Debounce Input Handlers - like scroll events, do when ever required</p>
+		<p class="lead">Reduce Paint Areas, existing elements should not be updated</p>
+		<p class="lead">Avoid Paint Storms - Avoid Paint of entire screen</p>
+		
+		<p class="lead">How to run animation at 60fps</p>
+		<ul>
+			<li>GPU Accelaration</li>
+			<li>Avoid changing CSS using JS, use class instead</li>
+			<li>Canvas is hardware accelerated - Replicate entire DOM in canvas, it will become Hardware accelerated</li>
+			<li>JS Animations</li>
+			<li>Style Calculation - CSSTriggers.com</li>
+			<li>Web Animations API - Standards</li>
+			<li>GIFs and Performance</li>
+			<li>Position Fixed Elements gets re-painter every time we scroll [ will-change: transform; ]</li>
+			<li>Union of Damaged Regions - To Reasearch</li>
+		</ul>
+		
+		
+	</section>
+</body>
+</html>
