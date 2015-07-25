@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>jQuery Conf 2015- 24th July</title>
+	<meta name="author" content="@chetan_raj" />
+	<meta name="description" content="" />
+	<meta name="keywords"  content="" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<section class="container">		
+		<div class="row">
+			<h3 class="text-primary">Key Note - Don't Make These jQuery Mistakes</h3>
+			<h3 class="text-primary">Speaker - Dave Methvin - <a href="https://github.com/dmethvin/">GitHub</a></h3>
+			<hr>
+			<p class="lead">Freeze the jQuery version at CDN to 1.11.1 - So latest no longer means latest</p>
+			<p class="lead">What jQuery 1.9 removed</p>
+			<ul>
+				<li>$.browser</li>
+				<li>$(el).live( .. );</li>
+				<li>USe jQuery Migrate Plugin to solve the problems</li>
+			</ul>
+			<p class="lead">jQuery does force layouts</p>
+			<p class="lead">Adventure in Dirty Layout</p>
+			<ul>
+				<li>:visible and :hidden selectors - </li>
+			</ul>
+			<p class="lead">
+				console.time("a");
+				$("body").removeClass("ac");
+				$(p:visible).css("color", "blue");</p>
+				console.timeEnd("article"); // 30ms, Addin class to body
+			</p>
+			<p class="lead">Use a class instead //8ms</p>
+			<p class="lead">Avoidance</p>
+			<ul>
+				<li>Avoidance :visible and :hidden</li>
+				<li>Use data- attributes or jQuery's data() method </li>
+			</ul>
+			<hr>
+			<p class="lead">show() and hide()</p>
+			<ul>
+				<li>It changes el's style attribute to ensure it sticks</li>
+			</ul>
+			<p class="lead">Currently Working Code of show() and hide() forces layout.</p>
+			<p class="lead">While showing/appending a new el to DOM, if the parent is hidden.</p>
+			<p class="lead">Avoid Show/Hide</p>
+			<ul>
+				<li>Use class instead</li>
+				<li>Avoid edge cases with forced display</li>
+				<li>Which works in Responsive pages</li>
+			</ul>
+			<hr>
+			<p class="lead">Gloabal Ajax</p>
+			<code>
+				$.ajax({
+					url: "abc.html",
+					sucess: function(){
+					}
+				});
+				
+				$.ajaxSetup({
+					type: "POST",
+					dataType: "json",
+					timeout: 500 //ms
+				});
+			</code>
+			<p class="lead">don't use $.ajaxSetup(), because it's difficult to debug and findout</p>	
+			<hr>
+			
+			
+			<p class="lead">jQuery constructor takes a lot of things</p>
+			<ul>
+				<li>$(function)</li>
+				<li>$(this)</li>
+				<li>$([el, el])</li>
+				<li>$({ name : value, ...})</li>
+				<li>$( el, { attributes:value })</li>
+				<li>$(selector)</li>
+				<li>$(html)</li>
+			</ul>
+			<p class="lead">What does this do ?</p>
+			<p class="lead">$(selector).appendTo("body")</p>
+			<p class="lead">Use .text() instead of .html() if only text nodes are present</p>
+			<code>
+				// Toggle all checkboxes
+				$("#el").on("click", function(){
+					$(".cb").each(function(){
+						$(this).prop("checked", $(this).prop("checked"));
+					});
+				});
+				
+				// The better way
+				$("#el").on("click", function(){
+					$(".cb").each(function(){
+						$(this).checked != this.checked;
+					});
+				});
+			</code>
+			Refer this Tweet - <a href="https://twitter.com/nashjain/status/624794080900329473">Tweet</a>
+			
+			<p class="lead">jQuery Selector Equivalent <a href="https://twitter.com/nashjain/status/624794080900329473">Tweet</a></p>
+			
+			<p class="lead">Risky Native Methods <a href="https://twitter.com/nashjain/status/624794080900329473">Tweet</a></p>
+			
+			<p class="lead">In Conclusion <a href="https://twitter.com/nashjain/status/624794080900329473">Tweet</a></p>
+			
+			<ul>
+				<li>Use pointer events for mobile</li>
+			</ul>
+		</div>
+	</section>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-57147313-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
